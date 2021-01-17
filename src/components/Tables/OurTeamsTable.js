@@ -73,7 +73,7 @@ function OurTeamsTable(props) {
       {serverRes ? (
         <>
           <>
-            {props.sports && (
+            {props.sports && props.sports.length > 0 && (
               <CreateSportTeam
                 show={show}
                 handleClose={handleClose}
@@ -99,17 +99,20 @@ function OurTeamsTable(props) {
                   <th>Min - Max Age</th>
                   <th>Coaches</th>
                   <th>Sport</th>
-                  {user && user.roles === 'admin' && (
-                    <th>
-                      Actions{' '}
-                      <Button
-                        onClick={() => {
-                          setShow(true);
-                        }}>
-                        Add New
-                      </Button>
-                    </th>
-                  )}
+                  {user &&
+                    user.roles === 'admin' &&
+                    props.sports &&
+                    props.sports.length > 0 && (
+                      <th>
+                        Actions{' '}
+                        <Button
+                          onClick={() => {
+                            setShow(true);
+                          }}>
+                          Add New
+                        </Button>
+                      </th>
+                    )}
                 </tr>
               </thead>
               <tbody>

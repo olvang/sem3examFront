@@ -59,7 +59,7 @@ function TeamPlayers(props) {
               players.map((memberInfo) => {
                 return (
                   <tr key={memberInfo.id}>
-                    <td>{memberInfo.player.id}</td>
+                    <td>{memberInfo.player.name}</td>
                     <td>{memberInfo.player.email}</td>
                     <td>{memberInfo.player.phone}</td>
                     <td>{memberInfo.payed ? 'True' : 'False'}</td>
