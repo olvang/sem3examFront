@@ -1,39 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Login from './Login';
-import { useHistory } from 'react-router-dom';
+import SportTable from './Tables/SportsTable';
+import OurTeamsTable from './Tables/OurTeamsTable';
+import CoachTable from './Tables/CoachTable';
+import PlayerTable from './Tables/PlayerTable';
 
 function Home(props) {
+  const [sports, setSports] = useState(null);
+  const [coaches, setCoaches] = useState(null);
+  const [players, setPlayers] = useState(null);
+
   return (
     <>
       <Container>
         <Col className="text-center">
-          <h1>Group π</h1>
+          <h1>Sport Club</h1>
         </Col>
         <Row>
           <Col>
-            <h1>Welcome</h1>
-            <h2>How to get started with this project:</h2>
-            <ol>
-              <li>Run 'npm install' to install dependencies</li>
-              <li>Run 'npm start' to begin local server</li>
-              <li>Change the server URL in /src/settings.js</li>
-              <li>
-                To add a new page, add it to the Switch in App.js, and the
-                header.jsx component
-                <ul>
-                  <li>
-                    Make sure the 'to' attribute in Header matches the 'path'
-                    attribute in App
-                  </li>
-                </ul>
-              </li>
-            </ol>
+            <h1>Our Teams</h1>
+            <OurTeamsTable sports={sports} />
+
+            <h1>Sports</h1>
+            <SportTable
+              setSports={setSports}
+              sports={sports}
+              setCoaches={setCoaches}
+              coaches={coaches}
+            />
+            {props.loggedIn && (
+              <>
+                <h1>Coaches</h1>
+                <CoachTable coaches={coaches} setCoaches={setCoaches} />
+
+                <h1>Players</h1>
+                <PlayerTable players={players} setPlayers={setPlayers} />
+              </>
+            )}
           </Col>
           {!props.loggedIn && (
-            <Col sm="4">
-              <Login setLoggedIn={props.setLoggedIn} />
-            </Col>
+            <>
+              <Col sm="4">
+                <Login setLoggedIn={props.setLoggedIn} />
+              </Col>
+            </>
           )}
         </Row>
       </Container>

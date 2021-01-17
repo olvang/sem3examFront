@@ -17,9 +17,9 @@ function Login(props) {
         .login(loginCredentials.username, loginCredentials.password)
         .then(() => {
           props.setLoggedIn(true);
-          history.push('/dashboard');
         })
         .catch((err) => {
+          console.log(err);
           if (err.status == 403) {
             setError('Wrong username or password!');
           } else {

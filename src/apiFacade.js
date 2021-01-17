@@ -1,5 +1,6 @@
 import jwt_decode from 'jwt-decode';
 import { URL } from './settings';
+import axios from 'axios';
 
 function handleHttpErrors(res) {
   if (!res.ok) {
@@ -51,10 +52,19 @@ function apiFacade() {
       });
   };
 
-  const fetchData = (endpoint, httpMethod) => {
-    const options = makeOptions(httpMethod, true); //True add's the token
-    return fetch(URL + endpoint, options).then(handleHttpErrors);
+  const fetchData = (endpoint, httpMethod, data) => {
+    return axios({
+      method: httpMethod,
+      url: URL + endpoint,
+      data,
+      headers: {
+        'Content-type': 'application/json',
+        Accept: 'application/json',
+        'x-access-token': getToken(),
+      },
+    });
   };
+
   const makeOptions = (method, addToken, body) => {
     var opts = {
       method: method,

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 import DashBoard from './components/DashBoard';
 import Home from './components/Home';
 import {
@@ -23,13 +24,13 @@ function App() {
 
   return (
     <>
-      <Header loggedIn={loggedIn} />
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <Switch>
         <Route exact path="/">
           <Home loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         </Route>
         <Route path="/dashboard">
-          <DashBoard loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+          <DashBoard loggedIn={loggedIn} />
         </Route>
         <Route path="/404">
           <NoMatch />

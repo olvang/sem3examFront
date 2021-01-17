@@ -34,10 +34,6 @@ function UserInfo() {
             <p>Roles: {user.roles}</p>
             <p>issuer: {user.issuer}</p>
           </Col>
-          <Col>
-            <h3>Server response:</h3>
-            {dataFromServer}
-          </Col>
         </Row>
       ) : (
         <Alert variant="danger">{error}</Alert>
