@@ -126,7 +126,7 @@ function PlayerTable(props) {
                               setSelectedPlayer(player);
                               setShowTeamModal(true);
                             }}>
-                            Players
+                            Teams
                           </Button>
                           <Button
                             variant="danger"

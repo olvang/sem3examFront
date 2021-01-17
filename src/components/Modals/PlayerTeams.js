@@ -57,11 +57,11 @@ function PlayerTeams(props) {
                     <td>{memberInfo.sportTeam.pricePerYear}</td>
                     <td>{memberInfo.payed ? 'True' : 'False'}</td>
                     <td>{memberInfo.datePayed}</td>
-                    {user && user.roles == 'admin' && (
+                    {/* {user && user.roles == 'admin' && (
                       <td>
                         <Button variant="danger">Delete</Button>
                       </td>
-                    )}
+                    )} */}
                   </tr>
                 );
               })}

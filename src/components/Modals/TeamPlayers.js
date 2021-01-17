@@ -64,11 +64,11 @@ function TeamPlayers(props) {
                     <td>{memberInfo.player.phone}</td>
                     <td>{memberInfo.payed ? 'True' : 'False'}</td>
                     <td>{memberInfo.datePayed}</td>
-                    {user && user.roles == 'admin' && (
+                    {/* {user && user.roles == 'admin' && (
                       <td>
                         <Button variant="danger">Delete</Button>
                       </td>
-                    )}
+                    )} */}
                   </tr>
                 );
               })}

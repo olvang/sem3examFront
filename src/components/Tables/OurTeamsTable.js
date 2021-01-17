@@ -73,12 +73,14 @@ function OurTeamsTable(props) {
       {serverRes ? (
         <>
           <>
-            <CreateSportTeam
-              show={show}
-              handleClose={handleClose}
-              selectedSportTeam={selectedSportTeam}
-              sports={props.sports}
-            />
+            {props.sports && (
+              <CreateSportTeam
+                show={show}
+                handleClose={handleClose}
+                selectedSportTeam={selectedSportTeam}
+                sports={props.sports}
+              />
+            )}
             {selectedSportTeam && showTeamPlayers && (
               <TeamPlayers
                 show={showTeamPlayers}
