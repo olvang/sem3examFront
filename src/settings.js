@@ -1,1 +1,1 @@
-export const URL = 'https://vangomango.dk/sem3exam/api';
+export const URL = 'http://localhost:8080/sem3exam_war/api';
